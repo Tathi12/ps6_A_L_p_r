@@ -1,0 +1,29 @@
+\documentclass[]{article}
+\setlength{\pdfpagewidth}{8.5in} \setlength{\pdfpageheight}{11in}
+\begin{document}
+\begin{tabular}{lcccccccccccc} \hline
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) & (10) & (11) & (12) \\
+VARIABLES & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) & Log(Burglary) \\ \hline
+ &  &  &  &  &  &  &  &  &  &  &  &  \\
+Castle Doctrine Law & 0.0717*** & 0.0269 & 0.0207 & 0.0174 & 0.0038 & 0.0226 & 0.0515** & 0.0087 & 0.0059 & 0.0033 & 0.0060 & 0.0203 \\
+ & (0.0230) & (0.0203) & (0.0187) & (0.0203) & (0.0055) & (0.0151) & (0.0250) & (0.0252) & (0.0235) & (0.0263) & (0.0076) & (0.0189) \\
+0 a 2 años antes de la castle doctrine law &  &  &  & -0.0109 &  &  &  &  &  &  &  &  \\
+ &  &  &  & (0.0106) &  &  &  &  &  &  &  &  \\
+Constant & 6.5811*** & 6.6311*** & 6.2340*** & 6.2686*** & 4.8972*** & 7.1100*** & 6.5293*** & 6.6499*** & 5.8208*** & 5.7935*** & 5.3607*** & 8.6516*** \\
+ & (0.0181) & (0.0359) & (1.8263) & (1.8252) & (0.4540) & (1.3509) & (0.0117) & (0.0303) & (1.6679) & (1.6966) & (0.5533) & (1.5235) \\
+ &  &  &  &  &  &  &  &  &  &  &  &  \\
+Observations & 550 & 550 & 550 & 550 & 544 & 550 & 550 & 550 & 550 & 550 & 544 & 550 \\
+R-squared & 0.2768 & 0.4342 & 0.4934 & 0.4944 & 0.9507 & 0.7849 & 0.1942 & 0.4082 & 0.4456 & 0.4461 & 0.9411 & 0.7134 \\
+Number of sid & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50 & 50 \\
+State and Year Fixed Effects & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes & Yes \\
+Region-by-Year Fixed Effects & No & Yes & Yes & Yes & Yes & Yes & , & Yes & Yes & Yes & Yes & Yes \\
+Time-Varying Controls & No & No & Yes & Yes & Yes & Yes &  & No & Yes & Yes & Yes & Yes \\
+Contemporaneous Crime Rates & No & No & No & No & Yes & No &  & No & No & No & Yes & No \\
+State-Specific Linear Time Trends & No & No & No & No & No & Yes &  & No & No & No & No & Yes \\
+, &  &  &  &  &  &  & , &  &  &  &  &  \\
+, &  &  &  &  &  &  & , &  &  &  &  &  \\
+ , &  &  &  &  &  &  & ) &  &  &  &  &  \\ \hline
+\multicolumn{13}{c}{ Robust standard errors in parentheses} \\
+\multicolumn{13}{c}{ *** p$<$0.01, ** p$<$0.05, * p$<$0.1} \\
+\end{tabular}
+\end{document}

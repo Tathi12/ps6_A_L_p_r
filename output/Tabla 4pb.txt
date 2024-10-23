@@ -1,0 +1,23 @@
+		(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)	(10)	(11)	(12)
+VARIABLES	LABELS	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery	Log robery
+													
+post	Castle Doctrine Law	0.0384*	0.0335*	0.0268	0.0223	0.0047	0.0471**	0.0399	0.0294	0.0126	0.0077	0.0099	0.0200
+		(0.0219)	(0.0189)	(0.0193)	(0.0199)	(0.0104)	(0.0223)	(0.0296)	(0.0370)	(0.0340)	(0.0371)	(0.0162)	(0.0311)
+pre2_cdl	0 a 2 años antes de la castle doctrine law				-0.0149								
+					(0.0136)								
+Constant	Constant	4.9089***	4.8816***	2.3034	2.3507	3.6950***	7.2491***	4.4632***	4.5101***	2.9554	2.9044	3.9983***	6.5282***
+		(0.0190)	(0.0307)	(1.8678)	(1.8616)	(0.6221)	(1.8757)	(0.0154)	(0.0423)	(2.3116)	(2.3288)	(1.0090)	(1.9937)
+													
+Observations		550	550	550	550	544	550	550	550	550	550	544	550
+R-squared		0.4648	0.5316	0.5565	0.5575	0.9048	0.7488	0.2366	0.2909	0.3813	0.3822	0.7660	0.6268
+Number of sid		50	50	50	50	50	50	50	50	50	50	50	50
+State and Year Fixed Effects		Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes	Yes
+Region-by-Year Fixed Effects		No	Yes	Yes	Yes	Yes	Yes	,	Yes	Yes	Yes	Yes	Yes
+Time-Varying Controls		No	No	Yes	Yes	Yes	Yes		No	Yes	Yes	Yes	Yes
+Contemporaneous Crime Rates		No	No	No	No	Yes	No		No	No	No	Yes	No
+State-Specific Linear Time Trends		No	No	No	No	No	Yes		No	No	No	No	Yes
+,								,					
+,								,					
+,								)					
+Robust standard errors in parentheses													
+*** p<0.01, ** p<0.05, * p<0.1													
