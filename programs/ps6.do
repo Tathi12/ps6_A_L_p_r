@@ -81,7 +81,7 @@ addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Ti
 
 * columna 10
 xtreg l_burglary post pre2_cdl i.year $region $xvar, fe cluster(sid) // 10
-outreg2 using "$output/Tabla 4.tex",append keep(post) dec(4) label ///
+outreg2 using "$output/Tabla 4.tex",append keep(post pre2_cdl) dec(4) label ///
 addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
 
 * columna 11
@@ -154,7 +154,7 @@ addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Ti
 
 * columna 10
 xtreg l_robbery post pre2_cdl i.year $region $xvar, fe cluster(sid) // 10
-outreg2 using "$output/Tabla 4pb.tex",append keep(post) dec(4) label ///
+outreg2 using "$output/Tabla 4pb.tex",append keep(post pre2_cdl) dec(4) label ///
 addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
 
 * columna 11
