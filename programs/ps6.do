@@ -1,10 +1,10 @@
 global main "C:\Aplicada\ps6_A_L_p_r"
-global input "$main/input"
-global output "$main/output"
+global input "$main\input"
+global output "$main\output"
 ssc install outreg2
 
 use "C:\Users\Usuario\Documents\GitHub\ps6_A_L_p_r\Input\castle.dta", clear
-use "$input/castle.dta", clear
+use "$input\castle.dta", clear
 xtset sid year // le explico a stata como estan mis datos 
 
 ****Ejercicio 1****
@@ -174,76 +174,44 @@ addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Ti
 
 *______________________________ panel c- asaltos agravados ____________
 
-** columna 1_ i.year is State and Year Fixed Effect
-xtreg l_assault post i.year [aweight=popwt], fe cluster(sid) 
-outreg2 using "$output/Tabla 4pc.tex", replace keep(post) dec(4) label ///
-addtext (State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, No, Time-Varying Controls, No, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No)
-
-
+*** columna 1_ i.year is State and Year Fixed Effect
+eststo: xtreg l_assault post i.year [aweight=popwt], fe cluster(sid) 
 
 * columna 2
-xtreg l_assault post i.year $region [aweight=popwt], fe cluster(sid) // 2
-outreg2 using "$output/Tabla 4pc.tex", append  keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, No, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year $region [aweight=popwt], fe cluster(sid) // 2
 
 * columna 3
-xtreg l_assault post i.year $region $xvar [aweight=popwt], fe cluster(sid) // 3
-outreg2 using "$output/Tabla 4pc.tex",append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year $region $xvar [aweight=popwt], fe cluster(sid) 
 
 * columna 4
-xtreg l_assault post pre2_cdl i.year $region $xvar [aweight=popwt], fe cluster(sid) // 4
-outreg2 using "$output/Tabla 4pc.tex", append keep(post pre2_cdl) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post pre2_cdl i.year $region $xvar [aweight=popwt], fe cluster(sid) 
 
 * columna 5
-xtreg l_assault post i.year $region $xvar $crime1 [aweight=popwt], fe cluster(sid) // 5
-outreg2 using "$output/Tabla 4pc.tex", append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, Yes, State-Specific Linear Time Trends, No)
-
+eststo: xtreg l_assault post i.year $region $xvar $crime1 [aweight=popwt], fe cluster(sid) 
 
 * columna 6
-xtreg l_assault post i.year $region $xvar $lintrend [aweight=popwt], fe cluster(sid) 
-outreg2 using "$output/Tabla 4pc.tex",append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, Yes) 
-
+eststo: xtreg l_assault post i.year $region $xvar $lintrend [aweight=popwt], fe cluster(sid) 
 
 * columna 7
-xtreg l_assault post i.year, fe cluster(sid) // 7
-outreg2 using "$output/Tabla 4pc.tex",append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects,  , Time-Varying Controls, No, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year, fe cluster(sid) 
 
 * columna 8
-xtreg l_assault post i.year $region, fe cluster(sid) // 8
-outreg2 using "$output/Tabla 4pc.tex",append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, No, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year $region, fe cluster(sid)
 
 * columna 9
-xtreg l_assault post i.year $region $xvar, fe cluster(sid) // 9
-outreg2 using "$output/Tabla 4pc.tex", append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year $region $xvar, fe cluster(sid)
 
 * columna 10
-xtreg l_assault post pre2_cdl i.year $region $xvar, fe cluster(sid) // 10
-outreg2 using "$output/Tabla 4pc.tex",append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, No) 
+eststo: xtreg l_assault post pre2_cdl i.year $region $xvar, fe cluster(sid) 
 
 * columna 11
-xtreg l_assault post i.year $region $xvar $crime1, fe cluster(sid) // 11
-outreg2 using "$output/Tabla 4pc.tex", append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, Yes, State-Specific Linear Time Trends, No) 
-
+eststo: xtreg l_assault post i.year $region $xvar $crime1, fe cluster(sid) 
 
 * columna 12
-xtreg l_assault post i.year $region $xvar $lintrend, fe cluster(sid) // 12
-outreg2 using "$output/Tabla 4pc.tex", append keep(post) dec(4) label ///
-addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, Yes) 
+eststo: xtreg l_assault post i.year $region $xvar $lintrend, fe cluster(sid) 
+
+esttab using "$output/Tabla 4pc_v3.tex", keep (post pre2_cdl)
+eststo clear
 
 ****Ejercicio 2****
 
