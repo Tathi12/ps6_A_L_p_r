@@ -278,3 +278,18 @@ csdid_plot, group(2007) name(m2,replace) title("Group 2007")
 csdid_plot, group(2008) name(m3,replace) title("Group 2008")
 csdid_plot, group(2009) name(m4,replace) title("Group 2009")
 graph combine m1 m2 m3 m4, xcommon scale(0.8)
+
+
+****Ejercicio 3****
+
+ssc install did_imputation
+
+// Vuelvemos a la forma original de la variable effyear asi puedo usar el codigo
+
+replace effyear = . if effyear == 0
+
+// Ahroa estimamos con el did imputation sin ningun tipo de controles
+
+did_imputation l_assault sid year effyear 
+
+
