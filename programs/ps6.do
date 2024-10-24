@@ -3,8 +3,10 @@ global input "$main/input"
 global output "$main/output"
 ssc install outreg2
 
-use "$input/castle.dta", clear
+use "C:\Users\Usuario\Documents\GitHub\ps6_A_L_p_r\Input\castle.dta", clear
 xtset sid year // le explico a stata como estan mis datos 
+
+****Ejercicio 1****
 
 *uso los controles del archivo que mandaron* 
 global region r20001-r20104 //region by year fixed effects 
@@ -241,4 +243,38 @@ xtreg l_assault post i.year $region $xvar $lintrend, fe cluster(sid) // 12
 outreg2 using "$output/Tabla 4pc.tex", append keep(post) dec(4) label ///
 addtext(State and Year Fixed Effects, Yes, Region-by-Year Fixed Effects, Yes, Time-Varying Controls, Yes, Contemporaneous Crime Rates, No, State-Specific Linear Time Trends, Yes) 
 
+****Ejercicio 2****
 
+ssc install drdid
+ssc install csdid
+
+// reemplazo para que el año de tratamiento tenga un 0 si la unidad no fue tratada nunca 
+
+replace effyear = 0 if effyear == .
+
+gen lgassault = log(assault)
+
+* CS
+csdid lgassault population sid year, ivar(sid) time(year) gvar(effyear) method(reg) notyet
+
+* Pretrends test. Veo si las tendencias son paralelas 
+estat pretrend
+
+* Average ATT
+estat simple
+
+* ATT by year
+estat calendar
+
+* ATT by group
+estat group
+
+* Event study plot
+estat event
+csdid_plot, title("Estudio de eventos")
+
+csdid_plot, group(2005) name(m1,replace) title("Group 2005")
+csdid_plot, group(2007) name(m2,replace) title("Group 2007")
+csdid_plot, group(2008) name(m3,replace) title("Group 2008")
+csdid_plot, group(2009) name(m4,replace) title("Group 2009")
+graph combine m1 m2 m3 m4, xcommon scale(0.8)
