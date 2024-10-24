@@ -243,6 +243,9 @@ estat group
 estat event
 csdid_plot, title("Estudio de eventos")
 
+csdid lgassault sid year, ivar(sid) time(year) gvar(effyear) method(reg) notyet
+
+
 csdid_plot, group(2005) name(m1,replace) title("Group 2005")
 csdid_plot, group(2007) name(m2,replace) title("Group 2007")
 csdid_plot, group(2008) name(m3,replace) title("Group 2008")
