@@ -225,7 +225,7 @@ replace effyear = 0 if effyear == .
 gen lgassault = log(assault)
 
 * CS
-csdid lgassault population sid year, ivar(sid) time(year) gvar(effyear) method(reg) notyet
+csdid lgassault sid year, ivar(sid) time(year) gvar(effyear) method(reg) notyet
 
 * Pretrends test. Veo si las tendencias son paralelas 
 estat pretrend
@@ -262,4 +262,7 @@ replace effyear = . if effyear == 0
 
 did_imputation l_assault sid year effyear 
 
+
+
+did_imputation l_assault sid year,  horizons(0/6) pretrends(5)
 
