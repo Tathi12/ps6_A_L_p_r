@@ -267,5 +267,5 @@ did_imputation l_assault sid year effyear
 
 
 
-did_imputation l_assault sid year,  horizons(0/6) pretrends(5)
+did_imputation l_assault sid year effyear, pretrends(5)
 
