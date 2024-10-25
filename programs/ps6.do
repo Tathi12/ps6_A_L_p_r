@@ -257,7 +257,7 @@ graph combine m1 m2 m3 m4, xcommon scale(0.8)
 
 ssc install did_imputation
 
-// Vuelvemos a la forma original de la variable effyear asi puedo usar el codigo
+// Volvemos a la forma original de la variable effyear asi puedo usar el codigo
 
 replace effyear = . if effyear == 0
 
@@ -265,6 +265,7 @@ replace effyear = . if effyear == 0
 
 did_imputation l_assault sid year effyear 
 
+// finalmente hacemos el control de las trends
 
 
 did_imputation l_assault sid year effyear, pretrends(5)
